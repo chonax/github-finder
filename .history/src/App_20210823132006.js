@@ -29,7 +29,7 @@ class App extends Component {
       {process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
 
     this.setState({
-      users: res.data.items,
+      user: res.data,
       loading: false,
     });
   };
@@ -44,7 +44,7 @@ class App extends Component {
       {process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
 
     this.setState({
-      user: res.data,
+      users: res.data.items,
       loading: false,
     });
   };
