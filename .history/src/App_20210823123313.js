@@ -12,7 +12,6 @@ class App extends Component {
   state = {
     users: [],
     loading: false,
-    alert: null,
   }
 
   // Search Github Users
@@ -26,6 +25,7 @@ class App extends Component {
     this.setState({
       users: res.data.items,
       loading: false,
+      alert: null,
     });
   };
 
@@ -34,8 +34,7 @@ class App extends Component {
 
   // Set Alert
   setAlert = (msg, type) => {
-    this.setState({ alert: { msg: msg, type: type } });
-    setTimeout(() => this.setState({ alert: null }), 5000);
+    this.setState({ alert: { msg: msg, type: type } })
   }
 
   render() {

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import Navbar from './components/layout/Navbar';
 import Users from './components/users/Users';
 import Search from './components/users/Search';
-import Alert from './components/layout/Alert';
 
 import axios from 'axios';
 import './App.css';
@@ -12,7 +11,6 @@ class App extends Component {
   state = {
     users: [],
     loading: false,
-    alert: null,
   }
 
   // Search Github Users
@@ -26,6 +24,7 @@ class App extends Component {
     this.setState({
       users: res.data.items,
       loading: false,
+      alert: null,
     });
   };
 
@@ -34,8 +33,7 @@ class App extends Component {
 
   // Set Alert
   setAlert = (msg, type) => {
-    this.setState({ alert: { msg: msg, type: type } });
-    setTimeout(() => this.setState({ alert: null }), 5000);
+    this.setState({ alert: { msg: msg, type: type } })
   }
 
   render() {
@@ -45,7 +43,6 @@ class App extends Component {
       <div className="App">
         <Navbar />
           <div className="container">
-            <Alert alert={this.state.alert} />
             <Search 
               searchUsers={this.searchUsers} 
               clearUsers={this.clearUsers} 
