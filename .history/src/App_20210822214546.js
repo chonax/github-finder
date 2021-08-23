@@ -19,7 +19,7 @@ class App extends Component {
    
     this.setState({
       users: res.data,
-      loading: false
+      loading: true
     });
   }
 
