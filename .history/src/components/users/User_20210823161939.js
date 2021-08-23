@@ -20,11 +20,10 @@ class User extends Component {
       location,
       bio,
       blog,
-      company,
       login,
       html_url,
       followers,
-      following,
+      folliwing,
       public_repos,
       public_gists,
       hireable,
@@ -63,38 +62,10 @@ class User extends Component {
                 <p>{bio}</p>
               </Fragment>
             )}
-            <a
-              href={html_url}
-              className="btn btn-dark my-1"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={html_url} className="btn btn-dark my-1" target="_blank">
               Visit Github Profile
             </a>
-            <ul>
-              {login && (
-                <li>
-                  <strong>Username: </strong> {login}
-                </li>
-              )}
-              {company && (
-                <li>
-                  <strong>Company: </strong> {company}}
-                </li>
-              )}
-              {blog && (
-                <li>
-                  <strong>Website: </strong> {blog}
-                </li>
-              )}
-            </ul>
           </div>
-        </div>
-        <div className="card text-center">
-          <div className="badge badge-primary">Followers: {followers}</div>
-          <div className="badge badge-success">Following: {following}</div>
-          <div className="badge badge-white">Public Repos: {public_repos}</div>
-          <div className="badge badge-dark">Public Gists: {public_gists}</div>
         </div>
       </Fragment>
     );

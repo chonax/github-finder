@@ -24,7 +24,7 @@ class User extends Component {
       login,
       html_url,
       followers,
-      following,
+      folliwing,
       public_repos,
       public_gists,
       hireable,
@@ -72,29 +72,29 @@ class User extends Component {
               Visit Github Profile
             </a>
             <ul>
-              {login && (
-                <li>
-                  <strong>Username: </strong> {login}
-                </li>
-              )}
-              {company && (
-                <li>
-                  <strong>Company: </strong> {company}}
-                </li>
-              )}
-              {blog && (
-                <li>
-                  <strong>Website: </strong> {blog}
-                </li>
-              )}
+              <li>
+                {login && (
+                  <Fragment>
+                    <strong>Username: </strong> {login}
+                  </Fragment>
+                )}
+              </li>
+              <li>
+                {company && (
+                  <Fragment>
+                    <strong>Company: </strong> {company}}
+                  </Fragment>
+                )}
+              </li>
+              <li>
+                {blog && (
+                  <Fragment>
+                    <strong>Blog: </strong> {blog}
+                  </Fragment>
+                )}
+              </li>
             </ul>
           </div>
-        </div>
-        <div className="card text-center">
-          <div className="badge badge-primary">Followers: {followers}</div>
-          <div className="badge badge-success">Following: {following}</div>
-          <div className="badge badge-white">Public Repos: {public_repos}</div>
-          <div className="badge badge-dark">Public Gists: {public_gists}</div>
         </div>
       </Fragment>
     );

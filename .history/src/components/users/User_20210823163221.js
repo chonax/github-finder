@@ -24,7 +24,7 @@ class User extends Component {
       login,
       html_url,
       followers,
-      following,
+      folliwing,
       public_repos,
       public_gists,
       hireable,
@@ -74,7 +74,8 @@ class User extends Component {
             <ul>
               {login && (
                 <li>
-                  <strong>Username: </strong> {login}
+                  <strong style={{ fontWeight: "bold" }}>Username: </strong>{" "}
+                  {login}
                 </li>
               )}
               {company && (
@@ -89,12 +90,6 @@ class User extends Component {
               )}
             </ul>
           </div>
-        </div>
-        <div className="card text-center">
-          <div className="badge badge-primary">Followers: {followers}</div>
-          <div className="badge badge-success">Following: {following}</div>
-          <div className="badge badge-white">Public Repos: {public_repos}</div>
-          <div className="badge badge-dark">Public Gists: {public_gists}</div>
         </div>
       </Fragment>
     );
