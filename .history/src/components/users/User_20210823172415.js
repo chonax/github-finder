@@ -9,8 +9,7 @@ const User = ({ user, loading, getUser, getUserRepos, repos, match }) => {
   useEffect(() => {
     getUser(match.params.login);
     getUserRepos(match.params.login);
-    //eslint-disable-next-line
-  }, []);
+  });
 
   const {
     name,
@@ -27,6 +26,8 @@ const User = ({ user, loading, getUser, getUserRepos, repos, match }) => {
     public_gists,
     hireable,
   } = user;
+
+  const { loading, repos } = this.props;
 
   if (loading) return <Spinner />;
 
