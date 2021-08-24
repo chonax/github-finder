@@ -64,7 +64,7 @@ const App = () => {
   };
 
   // Set Alert
-  const showAlert = (msg, type) => {
+  const setAlertFunc = (msg, type) => {
     setAlert({ msg, type });
     setTimeout(() => setAlert(null), 5000);
   };
@@ -82,10 +82,10 @@ const App = () => {
               render={(props) => (
                 <Fragment>
                   <Search
-                    searchUsers={searchUsers}
-                    clearUsers={clearUsers}
+                    searchUsers={this.searchUsers}
+                    clearUsers={this.clearUsers}
                     showClear={users.length > 0 ? true : false}
-                    setAlert={showAlert}
+                    setAlert={this.setAlertFunc}
                   />
                   <Users loading={loading} users={users} />
                 </Fragment>
@@ -98,8 +98,8 @@ const App = () => {
               render={(props) => (
                 <User
                   {...props}
-                  getUser={getUser}
-                  getUserRepos={getUserRepos}
+                  getUser={this.getUser}
+                  getUserRepos={this.getUserRepos}
                   user={user}
                   repos={repos}
                   loading={loading}

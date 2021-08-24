@@ -19,7 +19,7 @@ const App = () => {
   const [alert, setAlert] = useState(null);
 
   // Search Github Users
-  const searchUsers = async (text) => {
+  searchUsers = async (text) => {
     setLoading(true);
 
     const res =
@@ -32,7 +32,7 @@ const App = () => {
   };
 
   // Get Single Github User
-  const getUser = async (username) => {
+  getUser = async (username) => {
     setLoading(true);
 
     const res =
@@ -45,7 +45,7 @@ const App = () => {
   };
 
   // Get User's Repos
-  const getUserRepos = async (username) => {
+  getUserRepos = async (username) => {
     setLoading(true);
 
     const res =
@@ -58,14 +58,14 @@ const App = () => {
   };
 
   // Clear search results
-  const clearUsers = () => {
+  clearUsers = () => {
     setUsers([]);
     setLoading(false);
   };
 
   // Set Alert
-  const showAlert = (msg, type) => {
-    setAlert({ msg, type });
+  setAlert = (msg, type) => {
+    setAlert({ msg: msg, type: type });
     setTimeout(() => setAlert(null), 5000);
   };
 
@@ -82,10 +82,10 @@ const App = () => {
               render={(props) => (
                 <Fragment>
                   <Search
-                    searchUsers={searchUsers}
-                    clearUsers={clearUsers}
+                    searchUsers={thissearchUsers}
+                    clearUsers={this.clearUsers}
                     showClear={users.length > 0 ? true : false}
-                    setAlert={showAlert}
+                    setAlert={this.setAlert}
                   />
                   <Users loading={loading} users={users} />
                 </Fragment>
@@ -98,8 +98,8 @@ const App = () => {
               render={(props) => (
                 <User
                   {...props}
-                  getUser={getUser}
-                  getUserRepos={getUserRepos}
+                  getUser={this.getUser}
+                  getUserRepos={this.getUserRepos}
                   user={user}
                   repos={repos}
                   loading={loading}
