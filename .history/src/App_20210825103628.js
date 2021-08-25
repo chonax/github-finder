@@ -16,7 +16,6 @@ import "./App.css";
 
 const App = () => {
   const [repos, setRepos] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(null);
 
   // Search Github Users
@@ -67,12 +66,7 @@ const App = () => {
                 exact
                 path="/user/:login"
                 render={(props) => (
-                  <User
-                    {...props}
-                    getUserRepos={getUserRepos}
-                    repos={repos}
-                    loading={loading}
-                  />
+                  <User {...props} getUserRepos={getUserRepos} repos={repos} />
                 )}
               />
             </Switch>

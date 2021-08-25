@@ -6,15 +6,15 @@ import Repos from "../repos/Repos";
 import GithubContext from "../../context/github/githubContext";
 
 const User = ({ getUserRepos, repos, match }) => {
-  const githubContext = useContext(GithubContext);
-
-  const { getUser, loading, user } = githubContext;
-
   useEffect(() => {
     getUser(match.params.login);
     getUserRepos(match.params.login);
     //eslint-disable-next-line
   }, []);
+
+  const githubContext = useContext(GithubContext);
+
+  const { getUser, loading, user } = githubContext;
 
   const {
     name,
@@ -102,6 +102,9 @@ const User = ({ getUserRepos, repos, match }) => {
 };
 
 User.propTypes = {
+  loading: PropTypes.bool,
+  user: PropTypes.object.isRequired,
+  getUser: PropTypes.func.isRequired,
   getUserRepos: PropTypes.func.isRequired,
   repos: PropTypes.array.isRequired,
 };

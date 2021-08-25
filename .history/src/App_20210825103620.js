@@ -67,12 +67,7 @@ const App = () => {
                 exact
                 path="/user/:login"
                 render={(props) => (
-                  <User
-                    {...props}
-                    getUserRepos={getUserRepos}
-                    repos={repos}
-                    loading={loading}
-                  />
+                  <User {...props} getUserRepos={getUserRepos} repos={repos} />
                 )}
               />
             </Switch>

@@ -70,6 +70,7 @@ const App = () => {
                   <User
                     {...props}
                     getUserRepos={getUserRepos}
+                    user={user}
                     repos={repos}
                     loading={loading}
                   />
